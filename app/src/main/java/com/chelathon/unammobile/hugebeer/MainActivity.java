@@ -28,6 +28,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener,
         NavigationView.OnNavigationItemSelectedListener{
@@ -145,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         f.child("anfitrion").setValue(PreLoginActivity.accessToken.getUserId());
         f.child("nombre").setValue(name);
         f.child("lugar").setValue(lugar);
+        f.child("fecha_inicio").setValue(inicio_evento);
         f.child("ubicacion").child("lat").setValue(lat);
         f.child("ubicacion").child("lon").setValue(lon);
         f.child("status_recompensa").setValue(0);
@@ -154,8 +156,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     child("facebook_id").setValue(lista_invitados.get(i).getNombre());
             f.child("lista_invitados").child(lista_invitados.get(i).getFbId()).
                     child("confirmado").setValue(false);
+            Random r=new Random();
             f.child("lista_invitados").child(lista_invitados.get(i).getFbId()).
-                    child("pago").setValue(0);
+                    child("pago").setValue(r.nextInt(100));
         }
 
     }
@@ -228,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lista.add(new Invitado("Alex","sgfasdasdy6u64hxhd"));
                 lista.add(new Invitado("Luis","sgfetb55y6apghdsfd"));
 
-                createEvent("Peda en casa de Álvaro", "Casa de ÁLvaro", 99.2323, 46.23132, "Hasta morir",
+                createEvent("Peda en casa\n de Álvaro", "Casa de ÁLvaro", 99.2323, 46.23132, "Hasta morir",
                         new Date(10000),lista);
                 break;
         }
