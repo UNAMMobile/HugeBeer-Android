@@ -2,4 +2,5 @@
     <string name="app_name">HugeBeer</string>
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">753360644794626</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
