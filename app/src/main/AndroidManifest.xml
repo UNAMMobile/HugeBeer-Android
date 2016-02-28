@@ -2,6 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chelathon.unammobile.hugebeer">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+ The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+      IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission
+        android:name="com.chelathon.unammobile.hugebeer.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.chelathon.unammobile.hugebeer.permission.C2D_MESSAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +36,24 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="com.parse.APPLICATION_ID"
+                android:value="tYqlwHvoRJlXsVZ0wnC8j6H83XZidxuOmMmM1EPU" />
+            <meta-data
+                android:name="com.parse.CLIENT_KEY"
+                android:value="ZCvuGYhJVJ0U7VbkUvNf1BNB6EhBPWWd8ulIlpTO" />  <!--Need Parse client-->
+
+            <!-- Para servicios de google, no olvidar crear nueva key de servicios de google -->
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+            <meta-data
+                android:name="com.google.android.maps.v2.API_KEY"
+                android:value="AIzaSyBWRm_2_kepDYwZ3MyVr47ncauYoBePhUQ" />     <!--Need maps client-->
+
+        </activity>
+        <activity android:name=".PreLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
